@@ -24,6 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      -uses:- name: Check secret exists
+  shell: pwsh
+  run: |
+    if ("${{ secrets.AZURE_CREDENTIALS }}" -eq "") {
+      Write-Host "SECRET IS EMPTY"
+      exit 1
+    }
+    Write-Host "SECRET FOUND"
+
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
