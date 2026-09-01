@@ -19,13 +19,15 @@ jobs:
 
       - name: Check secret exists
         shell: pwsh
+        env:
+            AZ_CREDS: ${{ secrets.AZURE_CREDENTIALS }}
         run: |
-          if ("${{ secrets.AZURE_CREDENTIALS }}" -eq "") {
-            Write-Host "SECRET IS EMPTY"
-            exit 1
-          }
-
-          Write-Host "SECRET FOUND"
+            if ([string]:: {
+                Write-Host "SECRET IS EMPTY"
+                exit 1
+            }
+        
+            Write-Host "SECRET FOUND"
 
       - uses: azure/login@v1
         with:
