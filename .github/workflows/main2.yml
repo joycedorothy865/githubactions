@@ -16,23 +16,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Check secret exists
-        shell: pwsh
-        env:
-            AZ_CREDS: ${{ secrets.AZURE_CREDENTIALS }}
-        run: |
-            if ([string]:: {
-                Write-Host "SECRET IS EMPTY"
-                exit 1
-            }
-        
-            Write-Host "SECRET FOUND"
-
+    
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+    
       - uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ github.event.inputs.subscriptionId }}
