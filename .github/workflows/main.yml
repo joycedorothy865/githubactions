@@ -21,14 +21,31 @@ jobs:
     runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      - uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - uses: azure/arm-deploy@v1
-        with:
+   steps:
+  - uses: actions/checkout@v2
+
+  - name: Check secret exists
+    shell: pwsh
+    run: |
+      if ("${{ secrets.AZURE_CREDENTIALS }}" -eq "") {
+        Write-Host "SECRET IS EMPTY"
+        exit 1
+      }
+      Write-Host "SECRET FOUND"
+
+  - uses: azure/login@v1
+    with:
+      creds: ${{ secrets.AZURE_CREDENTIALS }}
+  - name: Check secret exists
+    shell: pwsh
+    run: |
+        if ("${{ secrets.AZURE_CREDENTIALS }}" -eq "") {
+          Write-Host "SECRET IS EMPTY"
+          exit 1
+        }    
+        Write-Host "SECRET FOUND"
+  - uses: azure/arm-deploy@v1
+    with:
           subscriptionId: ${{github.event.inputs.subscriptionId}}
           resourceGroupName: ${{github.event.inputs.resourceGroupName}}
           template: ./ARMTemplates/LA_Standard_Basic.json
