@@ -1,82 +1,77 @@
 name: DeploySimpleWorkflow
+
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+
   workflow_dispatch:
     inputs:
       RG_LA:
+        description: Resource Group Name
         required: true
       LA_NAME:
+        description: Logic App Standard Name
         required: true
 
 jobs:
   Build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Easy Zip Files
+      - uses: actions/checkout@v4
+
+      - name: Zip workflow
         uses: vimtor/action-zip@v1
         with:
-          dest: ${{ github.run_id }}.zip
           files: ./
-      - uses: actions/upload-artifact@master
+          dest: ${{ github.run_id }}.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: ${{ github.run_id }}.zip
+
   Deploy:
-    name: Deploy
     runs-on: ubuntu-latest
-    needs: [Build] 
+    needs: Build
+
     steps:
-     - uses: azure/login@v1
-       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
-        enable-AzPSSession: true
-     - name: Verify Azure Context
-       uses: azure/powershell@v1
-       with:
-        inlineScript: |
-          Get-AzContext
-          Get-AzSubscription
-        azPSVersion: latest
-     - name: Verify resource
-       uses: azure/powershell@v1
-       with:
-        inlineScript: |
-          Get-AzWebApp `
-            -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
-            -Name "${{ github.event.inputs.LA_NAME }}"
-        azPSVersion: latest
-     - name: Dump web app information
-       uses: azure/powershell@v1
-       with:
-        inlineScript: |
-          Get-AzWebApp `
-            -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
-            -Name "${{ github.event.inputs.LA_NAME }}" |
-            Format-List *
-        azPSVersion: latest  
-     - name: Get publish Profile
-       id: laapp
-       uses: azure/powershell@v1
-       with:
-         inlineScript: |
-          $profile = Get-AzWebAppPublishingProfile `
-              -ResourceGroupName ${{github.event.inputs.RG_LA}}`
-              -Name ${{github.event.inputs.LA_NAME}}
-          $profile = $profile.Replace("`r", "").Replace("`n", "")
-          Write-Output "::set-output name=profile::$profile"
-         azPSVersion: latest
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          enable-AzPSSession: true
 
-     - uses: actions/download-artifact@master
-       with:
-        name: build-artifact
-        path: build-art/
+      - name: Verify Azure Context
+        uses: azure/powershell@v2
+        with:
+          azPSVersion: latest
+          inlineScript: |
+            Get-AzContext
 
-     - name: Deploy to Azure Logic App
-       uses: Azure/functions-action@v1
-       id: la
-       with:
-        app-name: ${{ github.event.inputs.LA_NAME }}
-        package: build-art/${{ github.run_id }}.zip
-        publish-profile: ${{steps.laapp.outputs.profile}}
+      - name: Verify Logic App
+        uses: azure/powershell@v2
+        with:
+          azPSVersion: latest
+          inlineScript: |
+            $app = Get-AzWebApp `
+              -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
+              -Name "${{ github.event.inputs.LA_NAME }}"
+
+            Write-Host "Name: $($app.Name)"
+            Write-Host "Kind: $($app.Kind)"
+            Write-Host "State: $($app.State)"
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact
+          path: build-art
+
+      - name: Deploy Logic App Standard
+        uses: Azure/functions-action@v1
+        with:
+          app-name: ${{ github.event.inputs.LA_NAME }}
+          package: build-art/${{ github.run_id }}.zip
