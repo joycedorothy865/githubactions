@@ -1,16 +1,39 @@
 {
-    "definition": {
-        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-        "actions": {},
-        "triggers": {
-            "manual": {
-                "type": "Request",
-                "kind": "Http",
-                "inputs": {}
+  "definition": {
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "actions": {
+      "Initialize_variables": {
+        "type": "InitializeVariable",
+        "inputs": {
+          "variables": [
+            {
+              "name": "newvar",
+              "type": "string",
+              "value": "demo"
             }
+          ]
         },
-        "contentVersion": "1.0.0.0",
-        "outputs": {}
+        "runAfter": {}
+      }
     },
-    "kind": "Stateful"
+    "outputs": {},
+    "triggers": {
+      "When_messages_are_available_in_a_queue_(peek-lock)": {
+        "type": "ServiceProvider",
+        "inputs": {
+          "parameters": {
+            "queueName": "q1"
+          },
+          "serviceProviderConfiguration": {
+            "connectionName": "serviceBus-1",
+            "operationId": "peekLockQueueMessagesV2",
+            "serviceProviderId": "/serviceProviders/serviceBus"
+          }
+        },
+        "splitOn": "@triggerOutputs()?['body']"
+      }
+    }
+  },
+  "kind": "Stateful"
 }
