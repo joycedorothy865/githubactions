@@ -69,6 +69,6 @@ jobs:
        uses: Azure/functions-action@v1
        id: la
        with:
-        app-name: ${{github.event.inputs.RG_LA}}
+        app-name: ${{ github.event.inputs.LA_NAME }}
         package: build-art/${{ github.run_id }}.zip
         publish-profile: ${{steps.laapp.outputs.profile}}
