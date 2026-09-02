@@ -8,7 +8,7 @@
         "inputs": {
           "variables": [
             {
-              "name": "newvar",
+              "name": "demo",
               "type": "string",
               "value": "demo"
             }
@@ -26,7 +26,7 @@
             "queueName": "q1"
           },
           "serviceProviderConfiguration": {
-            "connectionName": "serviceBus-1",
+            "connectionName": "serviceBus",
             "operationId": "peekLockQueueMessagesV2",
             "serviceProviderId": "/serviceProviders/serviceBus"
           }
