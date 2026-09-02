@@ -5,10 +5,8 @@ on:
   workflow_dispatch:
     inputs:
       RG_LA:
-        description: 'SubscriptionId'
         required: true
       LA_NAME:
-        description: 'Resource group name'
         required: true
 
 jobs:
