@@ -12,7 +12,6 @@
     "APPINSIGHTS_INSTRUMENTATIONKEY": "496f3ab6-5dd9-41e1-be2a-89a77b6461d7",
     "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "1",
     "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=496f3ab6-5dd9-41e1-be2a-89a77b6461d7;IngestionEndpoint=https://canadacentral-1.in.applicationinsights.azure.com/;LiveEndpoint=https://canadacentral.livediagnostics.monitor.azure.com/;ApplicationId=1a1550f2-2f6d-4822-8322-7eaa1028e7be",
-    "serviceBus_connectionString": "Endpoint=sb://servicecanadacentral.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=t/oCt4aXUpBhfZYLms8NP/oF1LfOS4Lyi+ASbOd+ArE=",
     "WEBSITE_NODE_DEFAULT_VERSION": "22.23.1",
     "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=singletenantlajosan;AccountKey=8TLfjChdw4sHderg8+rVJTngIsSDg3GvjBCcAcWvkzBg6m7O8xzxFHP+UM31fdJRFoZaYUynDHxs+AStr4RlSA==;EndpointSuffix=core.windows.net",
     "WEBSITE_CONTENTSHARE": "singletenantlajosanb86e",
