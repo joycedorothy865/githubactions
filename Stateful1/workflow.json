@@ -26,10 +26,11 @@
             "queueName": "q1"
           },
           "serviceProviderConfiguration": {
-            "connectionName": "serviceBus",
+            "connectionName": "new_conn_ee57f",
             "operationId": "peekLockQueueMessagesV2",
             "serviceProviderId": "/serviceProviders/serviceBus"
-          }
+          }           
+
         },
         "splitOn": "@triggerOutputs()?['body']"
       }
