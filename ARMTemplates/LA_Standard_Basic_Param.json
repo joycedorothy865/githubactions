@@ -3,20 +3,20 @@
     "contentVersion": "1.0.0.0",
   "parameters": {
     "logicAppname": {
-      "value": "SingleTenantLAjosan"
+      "value": "LAdemoreador1"
     },
     "appInsightName": {
-      "value": "SingleTenantLAjosan"
+      "value": "LAdemoreador1"
     },
     "use32BitWorkerProcess": {
       "value": true
     },
     "hostingPlanName": {
-      "value": "SingleTenantLAjosan"
+      "value": "LAdemoreador1"
     },
 
     "StorageAccountName": {
-      "value": "singletenantlajosan"
+      "value": "LAdemoreastr"
     },
 
     "sku": {
