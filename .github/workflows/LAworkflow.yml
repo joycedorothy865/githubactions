@@ -47,7 +47,15 @@ jobs:
             -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
             -Name "${{ github.event.inputs.LA_NAME }}"
         azPSVersion: latest
-        
+     - name: Dump web app information
+       uses: azure/powershell@v1
+       with:
+        inlineScript: |
+          Get-AzWebApp `
+            -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
+            -Name "${{ github.event.inputs.LA_NAME }}" |
+            Format-List *
+        azPSVersion: latest  
      - name: Get publish Profile
        id: laapp
        uses: azure/powershell@v1
