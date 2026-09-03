@@ -1,18 +1,15 @@
 {
-  "serviceProviderConnections": {
-    "serviceBus": {
-      "parameterValues": {
-        "fullyQualifiedNamespace": "@appsetting('serviceBus_fullyQualifiedNamespace')",
-        "authProvider": {
-          "Type": "ManagedServiceIdentity"
+    "managedApiConnections": {},
+    "serviceProviderConnections": {
+        "serviceBus": {
+            "displayName": "new_conn_b7627",
+            "parameterSetName": "connectionString",
+            "parameterValues": {
+                "connectionString": "@appsetting('serviceBus_connectionString')"
+            },
+            "serviceProvider": {
+                "id": "/serviceProviders/serviceBus"
+            }
         }
-      },
-      "parameterSetName": "ManagedServiceIdentity",
-      "serviceProvider": {
-        "id": "/serviceProviders/serviceBus"
-      },
-      "displayName": "new_conn_ee57f"
     }
-  },
-  "managedApiConnections": {}
 }
