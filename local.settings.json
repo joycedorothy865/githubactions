@@ -5,6 +5,7 @@
     "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=demorgbf89;AccountKey=qHCKze785LKacxsuRP47RGQ2t2ferNy9SDUrSuLakPCUDJhVb9AEib+M4St6tWn9b5B6orb2bQ1T+ASt3MQlmw==;EndpointSuffix=core.windows.net",
     "WEBSITE_SITE_NAME": "LAdemoreador",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+     "serviceBus_connectionString":"Endpoint=sb://servicecanadacentral.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=t/oCt4aXUpBhfZYLms8NP/oF1LfOS4Lyi+ASbOd+ArE=",
     "APP_KIND": "workflowApp",
     "WEBSITE_AUTH_ENABLED": "False",
     "WEBSITE_DEFAULT_HOSTNAME": "lademoreador-d6eagrfydffddcfp.canadacentral-01.azurewebsites.net",
