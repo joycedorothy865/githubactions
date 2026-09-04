@@ -2,7 +2,7 @@
     "managedApiConnections": {},
     "serviceProviderConnections": {
         "serviceBus": {
-            "displayName": "new_conn_b7627",
+            "displayName": "serviceBus",
             "parameterSetName": "connectionString",
             "parameterValues": {
                 "connectionString": "@appsetting('serviceBus_connectionString')"
