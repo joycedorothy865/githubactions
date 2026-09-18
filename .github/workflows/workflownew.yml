@@ -21,11 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Zip workflow
-        uses: vimtor/action-zip@v1
-        with:
-          files: ./
-          dest: ${{ github.run_id }}.zip
+      - name: Create package
+        run: |
+         zip -r ${{ github.run_id }}.zip . \
+         -x ".git/*" \
+         -x ".github/*" \
+         -x "local.settings.json"
+
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
