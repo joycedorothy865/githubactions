@@ -1,0 +1,29 @@
+name: Create a Logic App
+
+on:
+  workflow_dispatch:
+    inputs:
+      subscriptionId:
+        description: 'SubscriptionId'
+        required: true
+      resourceGroupName:
+        description: 'Resource group name'
+        required: true
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v2
+    
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+      - uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ github.event.inputs.subscriptionId }}
+          resourceGroupName: ${{ github.event.inputs.resourceGroupName }}
+          template: ./ARMTemplates/LA_Standard_Basic.json
+          parameters: ./ARMTemplates/LA_Standard_Basic_Param.json
