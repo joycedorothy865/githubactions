@@ -2,10 +2,13 @@
     "managedApiConnections": {},
     "serviceProviderConnections": {
         "serviceBus": {
-            "displayName": "serviceBus",
-            "parameterSetName": "connectionString",
+            "displayName": "new_conn_623cb",
+            "parameterSetName": "ManagedServiceIdentity",
             "parameterValues": {
-                "connectionString": "@appsetting('serviceBus_connectionString')"
+                "authProvider": {
+                    "Type": "ManagedServiceIdentity"
+                },
+                "fullyQualifiedNamespace": "@appsetting('serviceBus_fullyQualifiedNamespace')"
             },
             "serviceProvider": {
                 "id": "/serviceProviders/serviceBus"
