@@ -3,16 +3,16 @@
     "contentVersion": "1.0.0.0",
   "parameters": {
     "logicAppname": {
-      "value": "LAdemoreador5"
+      "value": "LAdemoreador6"
     },
     "appInsightName": {
-      "value": "LAdemoreador5"
+      "value": "LAdemoreador6"
     },
     "use32BitWorkerProcess": {
       "value": true
     },
     "hostingPlanName": {
-      "value": "LAdemoreador5"
+      "value": "LAdemoreador6"
     },
 
     "StorageAccountName": {
