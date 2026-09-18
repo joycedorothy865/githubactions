@@ -2,24 +2,19 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_EXTENSION_VERSION": "~4",
-    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=demorgbf89;AccountKey=qHCKze785LKacxsuRP47RGQ2t2ferNy9SDUrSuLakPCUDJhVb9AEib+M4St6tWn9b5B6orb2bQ1T+ASt3MQlmw==;EndpointSuffix=core.windows.net",
-    "WEBSITE_SITE_NAME": "LAdemoreador",
-    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-     "serviceBus_connectionString":"Endpoint=sb://servicecanadacentral.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=t/oCt4aXUpBhfZYLms8NP/oF1LfOS4Lyi+ASbOd+ArE=",
-    "APP_KIND": "workflowApp",
-    "WEBSITE_AUTH_ENABLED": "False",
-    "WEBSITE_DEFAULT_HOSTNAME": "lademoreador-d6eagrfydffddcfp.canadacentral-01.azurewebsites.net",
-    "AzureFunctionsJobHost__extensionBundle__id": "Microsoft.Azure.Functions.ExtensionBundle.Workflows",
-    "ScmType": "None",
-    "LOGIC_APPS_POWERSHELL_VERSION": "7.4",
-    "WEBSITE_CONTENTSHARE": "lademoreadora2a9",
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=demorgbf89;AccountKey=qHCKze785LKacxsuRP47RGQ2t2ferNy9SDUrSuLakPCUDJhVb9AEib+M4St6tWn9b5B6orb2bQ1T+ASt3MQlmw==;EndpointSuffix=core.windows.net",
-    "serviceBus_fullyQualifiedNamespace": "servicecanadacentral.servicebus.windows.net",
-    "FUNCTIONS_RUNTIME_SCALE_MONITORING_ENABLED": "1",
-    "AzureFunctionsJobHost__extensionBundle__version": "[1.*, 2.0.0)",
-    "WEBSITE_SLOT_NAME": "Production",
-    "APPLICATIONINSIGHTS_CONNECTION_STRING": "InstrumentationKey=98698711-1223-4d2b-90e8-58730bffbc45;IngestionEndpoint=https://canadacentral-1.in.applicationinsights.azure.com/;LiveEndpoint=https://canadacentral.livediagnostics.monitor.azure.com/;ApplicationId=2d8b3c15-a160-46b4-8462-84fb261e9f5b",
-    "WEBSITE_NODE_DEFAULT_VERSION": "20.20.2",
-    "FUNCTIONS_INPROC_NET8_ENABLED": "1"
+    "APP_KIND"="workflowApp"
+"APPLICATIONINSIGHTS_CONNECTION_STRING"="InstrumentationKey=435406cf-f93b-4cd5-a680-d1129cfe1ec4;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=b7c08a87-0037-4e35-b11a-4f82d82583f2"
+"AzureFunctionsJobHost__extensionBundle__id"="Microsoft.Azure.Functions.ExtensionBundle.Workflows"
+"AzureFunctionsJobHost__extensionBundle__version"="[1.*, 2.0.0)"
+"AzureWebJobsStorage"="DefaultEndpointsProtocol=https;AccountName=testing82ba;AccountKey=oalPDwJfpGhSLwiPvVpNXVxAHuquJdcQRxMgD577sZ4a8eqSRSxvisqQBFrpDyls8Oy0ocH0Pn0y+AStINQw4g==;EndpointSuffix=core.windows.net"
+"FUNCTIONS_EXTENSION_VERSION"="~4"
+"FUNCTIONS_INPROC_NET8_ENABLED"="1"
+"FUNCTIONS_WORKER_RUNTIME"="dotnet"
+"LOGIC_APPS_POWERSHELL_VERSION"="7.4"
+"serviceBus_fullyQualifiedNamespace"="SBnamespaced.servicebus.windows.net"
+"WEBSITE_CONTENTAZUREFILECONNECTIONSTRING"="DefaultEndpointsProtocol=https;AccountName=testing82ba;AccountKey=oalPDwJfpGhSLwiPvVpNXVxAHuquJdcQRxMgD577sZ4a8eqSRSxvisqQBFrpDyls8Oy0ocH0Pn0y+AStINQw4g==;EndpointSuffix=core.windows.net"
+"WEBSITE_CONTENTSHARE"="lademo9445"
+"WEBSITE_NODE_DEFAULT_VERSION"="~20"
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
   }
 }
