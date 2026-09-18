@@ -8,7 +8,6 @@
 "AzureFunctionsJobHost__extensionBundle__version"="[1.*, 2.0.0)"
 "AzureWebJobsStorage"="DefaultEndpointsProtocol=https;AccountName=testing82ba;AccountKey=oalPDwJfpGhSLwiPvVpNXVxAHuquJdcQRxMgD577sZ4a8eqSRSxvisqQBFrpDyls8Oy0ocH0Pn0y+AStINQw4g==;EndpointSuffix=core.windows.net"
 "FUNCTIONS_EXTENSION_VERSION"="~4"
-"FUNCTIONS_INPROC_NET8_ENABLED"="1"
 "FUNCTIONS_WORKER_RUNTIME"="dotnet"
 "LOGIC_APPS_POWERSHELL_VERSION"="7.4"
 "serviceBus_fullyQualifiedNamespace"="SBnamespaced.servicebus.windows.net"
