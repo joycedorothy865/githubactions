@@ -19,21 +19,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Create package
+      - name: Create Deployment Folder
         run: |
-         zip -r ${{ github.run_id }}.zip . \
-         -x ".git/*" \
-         -x ".github/*" \
-         -x "local.settings.json"
+          mkdir deploy
 
+          cp host.json deploy/
+          cp connections.json deploy/
 
-      - name: Upload artifact
+          # Copy workflow folders
+          cp -r Stateful1 deploy/
+
+          # Copy additional folders if required
+          # cp -r Artifacts deploy/
+          # cp -r lib deploy/
+
+      - name: Create Zip Package
+        run: |
+          cd deploy
+          zip -r ../logicapp.zip .
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: ${{ github.run_id }}.zip
+          path: logicapp.zip
 
   Deploy:
     runs-on: ubuntu-latest
@@ -44,36 +56,11 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          enable-AzPSSession: true
 
-      - name: Verify Azure Context
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            Get-AzContext
-
-      - name: Verify Logic App
-        uses: azure/powershell@v2
-        with:
-          azPSVersion: latest
-          inlineScript: |
-            $app = Get-AzWebApp `
-              -ResourceGroupName "${{ github.event.inputs.RG_LA }}" `
-              -Name "${{ github.event.inputs.LA_NAME }}"
-
-            Write-Host "Name: $($app.Name)"
-            Write-Host "Kind: $($app.Kind)"
-            Write-Host "State: $($app.State)"
-
-      - name: Download artifact
+      - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
           name: build-artifact
           path: build-art
 
-      - name: Deploy Logic App Standard
-        uses: Azure/functions-action@v1
-        with:
-          app-name: ${{ github.event.inputs.LA_NAME }}
-          package: build-art/${{ github.run_id }}.zip
+      - name
