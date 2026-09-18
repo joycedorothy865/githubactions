@@ -49,7 +49,6 @@ jobs:
     subscriptionId: '${{ github.event.inputs.subscriptionId }}'
     resourceGroupName: '${{ github.event.inputs.resourceGroupName }}'
     template: './ARMTemplates/LA_Standard_Basic.json'
-    parameters: './ARMTemplates/LA_Standard_Basic_Param.json'
-    parameters: './ARMTemplates/LA_Standard_Basic_Param.json'
+    parameters: './ARMTemplates/LA_Standard_Basic_Param.json'A_Standard_Basic_Param.json'
 emplates/LA_Standard_Basic.json
           parameters: ./ARMTemplates/LA_Standard_Basic_Param.json
