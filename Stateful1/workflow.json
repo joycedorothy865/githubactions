@@ -2,14 +2,27 @@
     "definition": {
         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
         "contentVersion": "1.0.0.0",
-        "actions": {},
+        "actions": {
+            "Initialize_variables": {
+                "type": "InitializeVariable",
+                "inputs": {
+                    "variables": [
+                        {
+                            "name": "newvar",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "runAfter": {}
+            }
+        },
         "outputs": {},
         "triggers": {
             "When_messages_are_available_in_a_queue_(peek-lock)": {
                 "type": "ServiceProvider",
                 "inputs": {
                     "parameters": {
-                        "queueName": "q1"
+                        "queueName": "qq"
                     },
                     "serviceProviderConfiguration": {
                         "connectionName": "serviceBus",
