@@ -1,6 +1,5 @@
 {
-  "IsEncrypted": false,
-  "Values": {
+  
     "FUNCTIONS_EXTENSION_VERSION": "~4",
     "APP_KIND"="workflowApp",
 "APPLICATIONINSIGHTS_CONNECTION_STRING"="InstrumentationKey=435406cf-f93b-4cd5-a680-d1129cfe1ec4;IngestionEndpoint=https://swedencentral-0.in.applicationinsights.azure.com/;LiveEndpoint=https://swedencentral.livediagnostics.monitor.azure.com/;ApplicationId=b7c08a87-0037-4e35-b11a-4f82d82583f2",
@@ -15,5 +14,4 @@
 "WEBSITE_CONTENTSHARE"="lademo9445",
 "WEBSITE_NODE_DEFAULT_VERSION"="~20",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-  }
 }
