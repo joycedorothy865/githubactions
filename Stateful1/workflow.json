@@ -25,7 +25,7 @@
                         "queueName": "qq"
                     },
                     "serviceProviderConfiguration": {
-                        "connectionName": "serviceBus",
+                        "connectionName": "serviceBus-1",
                         "operationId": "peekLockQueueMessagesV2",
                         "serviceProviderId": "/serviceProviders/serviceBus"
                     }
