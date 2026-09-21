@@ -21,7 +21,7 @@
                 "authProvider": {
                     "Type": "ManagedServiceIdentity"
                 },
-                "fullyQualifiedNamespace": "@appsetting('serviceBus_fullyQualifiedNamespace')"
+                "fullyQualifiedNamespace": "@appsetting('serviceBus_fullyQualifiedNamespace-1')"
             },
             "serviceProvider": {
                 "id": "/serviceProviders/serviceBus"
