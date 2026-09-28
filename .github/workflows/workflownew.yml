@@ -22,16 +22,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Deploy App Settings
-        uses: azure/cli@v2
-        with:
-         inlineScript: |
-          az webapp config appsettings set \
-            --resource-group "${{ github.event.inputs.RG_LA }}" \
-            --name "${{ github.event.inputs.LA_NAME }}" \
-            --settings \
-              serviceBus_fullyQualifiedNamespace-1="SBnamespaced.servicebus.windows.net"
-
+      
       - name: Create Deployment Folder
         run: |
           mkdir deploy
@@ -72,6 +63,17 @@ jobs:
         with:
           name: build-artifact
           path: build-art
+
+      - name: Deploy App Settings
+        uses: azure/cli@v2
+        with:
+         inlineScript: |
+          az webapp config appsettings set \
+            --resource-group "${{ github.event.inputs.RG_LA }}" \
+            --name "${{ github.event.inputs.LA_NAME }}" \
+            --settings \
+              serviceBus_fullyQualifiedNamespace-1="SBnamespaced.servicebus.windows.net"
+
 
       - name: Deploy Logic App Standard
         uses: azure/cli@v2
