@@ -22,6 +22,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Deploy App Settings
+        uses: azure/cli@v2
+        with:
+         inlineScript: |
+          az webapp config appsettings set \
+            --resource-group "${{ github.event.inputs.RG_LA }}" \
+            --name "${{ github.event.inputs.LA_NAME }}" \
+            --settings \
+              ServiceBusConnectionId="${{ secrets.SERVICEBUS_CONNECTION_ID }}" \
+              ServiceBusRuntimeUrl="${{ secrets.SERVICEBUS_RUNTIME_URL }}"
+
       - name: Create Deployment Folder
         run: |
           mkdir deploy
