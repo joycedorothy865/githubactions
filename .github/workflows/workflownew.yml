@@ -30,8 +30,7 @@ jobs:
             --resource-group "${{ github.event.inputs.RG_LA }}" \
             --name "${{ github.event.inputs.LA_NAME }}" \
             --settings \
-              ServiceBusConnectionId="${{ secrets.SERVICEBUS_CONNECTION_ID }}" \
-              ServiceBusRuntimeUrl="${{ secrets.SERVICEBUS_RUNTIME_URL }}"
+              serviceBus_fullyQualifiedNamespace-1="SBnamespaced.servicebus.windows.net"
 
       - name: Create Deployment Folder
         run: |
