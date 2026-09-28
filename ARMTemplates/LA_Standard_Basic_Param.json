@@ -3,20 +3,20 @@
     "contentVersion": "1.0.0.0",
   "parameters": {
     "logicAppname": {
-      "value": "LAdemoreador7"
+      "value": "LAdemoreador8"
     },
     "appInsightName": {
-      "value": "LAdemoreador7"
+      "value": "LAdemoreador8"
     },
     "use32BitWorkerProcess": {
       "value": true
     },
     "hostingPlanName": {
-      "value": "LAdemoreador7"
+      "value": "LAdemoreador8"
     },
 
     "StorageAccountName": {
-      "value": "lademoreastrss"
+      "value": "lademoreast"
     },
 
     "sku": {
